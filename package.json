@@ -1,6 +1,6 @@
 {
   "name": "cosmoweng-vue3-workshop-template",
-  "version": "1.0.23016",
+  "version": "1.0.2301617",
   "description": "test",
   "scripts": {
     "dev": "vite",
