@@ -1,11 +1,16 @@
-<h1 align="center">Vue 3 UI 開發模板</h1>
+<h1 align="center">Vue Input Feature</h1>
 
 <p align="center">
-使用 Vite 開發 Vue3 UI 框架
+ 輸入框
 </p>
 
+## Feature
+- 輸入文字自顯示字數
+- 最後字數時顯示自訂義顏色
+- 支援前綴後綴顯示
+- 支援點擊後複製內容
+-
 
-  <img src="./assets/pic.png" />
 
 ## Init
 ```
