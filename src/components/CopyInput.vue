@@ -1,26 +1,29 @@
-<template>
-  <input></input>
-</template>
+<script setup>
+import { computed, ref, watch } from "vue";
 
-<script>
-export default {
-  name: 'CopyInput',
-  data() {
-    return {
+const inputValue = ref("");
 
-    };
-  },
+const handleClick = () => {
+    if (!inputValue.value) {
+      return
+    }
+    //
+    navigator.clipboard.writeText(inputValue.value)
+    .then(() => {
+      console.log('複製成功');
+      alert("複製成功:" + inputValue.value);
+    });
+}
 
-  mounted() {
-
-  },
-
-  methods: {
-
-  },
-};
 </script>
 
-<style lang="scss" scoped>
+<template>
+  <input v-model="inputValue" @click="handleClick"/>
+</template>
 
+
+<style>
+.class{
+  color: red;
+}
 </style>
