@@ -1,1 +1,3 @@
-export { default as HelloWord } from "./components/HelloWorld.vue";
+export {
+  default as CharCountInput
+} from "./components/CharCountInput.vue";
