@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>color-hint-input 測試頁</title>
+  <link rel="stylesheet" href="../dist/style.css" />
+</head>
+
+<body>
+  <div id="app">
+    <div style="width: 500px; margin: 20px">
+      <h1>頁面組件共用設定值測試</h1>
+      <h2>ColorHintInput</h2>
+      <color-hint-input v-model="message" :options="options"></color-hint-input>
+      <h2>CharCountInput</h2>
+      <char-count-input v-model="message" :options="options"></char-count-input>
+    </div>
+  </div>
+  <script type="importmap">
+      {
+        "imports": {
+          "vue": "https://cdnjs.cloudflare.com/ajax/libs/vue/3.2.41/vue.esm-browser.prod.js"
+        }
+      }
+    </script>
+  <script type="module">
+    import { createApp, ref } from "vue";
+    import { ColorHintInput, CharCountInput } from "../dist/MyLibrary.es.js";
+    createApp({
+        components: {
+          ColorHintInput,
+          CharCountInput,
+        },
+        setup() {
+          return {
+            options: {
+              // 與 CharCountInput 使用相同最大字串長度命名
+              maxLength: 30,
+              colorSets: [
+                // 顏色組合物件可自由增減
+                // 剩餘容許字數較小的顏色組合會蓋過大的，但不用按照順序
+                {
+                  charsLeftUnder: 25, // 剩餘容許字數(小於等於)
+                  color: '#8C8C00',
+                },
+                {
+                  charsLeftUnder: 10,
+                  color: '#FFD306',
+                },
+                {
+                  charsLeftUnder: 5,
+                  color: '#FF8000',
+                },
+                {
+                  charsLeftUnder: 0,
+                  color: '#FF0000'
+                },
+              ],
+            }
+          };
+        },
+      }).mount("#app");
+  </script>
+</body>
+
+</html>
